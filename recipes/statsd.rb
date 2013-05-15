@@ -23,7 +23,7 @@
 platform_options = node["graphite"]["platform"]
 
 package "statsd-c" do
-  action :install
+  action node["osops"]["do_package_upgrades"] == true ? :upgrade : :install
 end
 
 service platform_options["statsd_service"] do
